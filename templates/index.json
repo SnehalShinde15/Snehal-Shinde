@@ -14,7 +14,7 @@
       "name": "Hero Gift Guide",
       "settings": {
         "title": "The Gift Guide",
-        "subtitle": "Discover Joy: Your Ultimate Holiday Gift Destination.",
+        "subtitle": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.",
         "button_text": "SHOP NOW",
         "button_link": "shopify://collections"
       }
@@ -79,8 +79,9 @@
       ],
       "custom_css": [
         ".grid {display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;}",
-        "@media(max-width:768px){.grid {grid-template-columns: repeat(2, 1fr); }}",
-        "@media(max-width:480px){.grid {grid-template-columns: 1fr; }}"
+        "@media (max-width: 768px) {.grid {grid-template-columns: repeat(2, 1fr); }}",
+        "@media (max-width: 480px) {.grid {grid-template-columns: 1fr; }}",
+        ".container {height: 2000px;}"
       ],
       "name": "Image Grid Wild",
       "settings": {
