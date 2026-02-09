@@ -1,0 +1,65 @@
+<section class="grid-section">
+  <h2>{{ section.settings.title }}</h2>
+  <div class="grid">
+    {% for block in section.blocks %}
+      <div class="grid-item">
+        <img src="{{ block.settings.image | image_url }}" alt="">
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<style>
+.grid-section {
+  padding: 60px 40px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.grid img {
+  width: 100%;
+  display: block;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Image Grid Wild",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Tisso vision in the wild"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image Grid Wild",
+      "blocks": [
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" }
+      ]
+    }
+  ]
+}
+{% endschema %}
