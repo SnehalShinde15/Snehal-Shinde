@@ -78,9 +78,9 @@
         "image_7eTApe"
       ],
       "custom_css": [
-        ".grid {display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px;}",
-        "@media(max-width:1024px){.grid {grid-template-columns: repeat(3, 1fr); }}",
-        "@media(max-width:768px){.grid {grid-template-columns: repeat(2, 1fr); }}"
+        ".grid {display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;}",
+        "@media(max-width:768px){.grid {grid-template-columns: repeat(2, 1fr); }}",
+        "@media(max-width:480px){.grid {grid-template-columns: 1fr; }}"
       ],
       "name": "Image Grid Wild",
       "settings": {
