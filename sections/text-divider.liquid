@@ -1,0 +1,29 @@
+<section class="divider">
+  <p>{{ section.settings.text }}</p>
+</section>
+
+<style>
+.divider {
+  text-align: center;
+  padding: 20px;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Text Divider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL"
+    }
+  ],
+  "presets": [
+    { "name": "Text Divider" }
+  ]
+}
+{% endschema %}
