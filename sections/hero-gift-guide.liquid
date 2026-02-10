@@ -1,36 +1,79 @@
-<section class="hero">
+<section
+  class="hero-gift-guide"
+  style="
+    {% if section.settings.bg_image %}
+      background-image: url({{ section.settings.bg_image | image_url }});
+      background-size: cover;
+      background-position: center;
+    {% else %}
+      background-color: #f4f4f4;
+    {% endif %}
+  "
+>
   <div class="hero-content">
-    <h1>{{ section.settings.title }}</h1>
-    <p>{{ section.settings.subtitle }}</p>
-    <a href="{{ section.settings.button_link }}" class="hero-btn">
-      {{ section.settings.button_text }}
-    </a>
+    {% if section.settings.title != blank %}
+      <h1>{{ section.settings.title }}</h1>
+    {% endif %}
+
+    {% if section.settings.subtitle != blank %}
+      <p>{{ section.settings.subtitle }}</p>
+    {% endif %}
+
+    {% if section.settings.button_text != blank %}
+      <a
+        href="{{ section.settings.button_link }}"
+        class="hero-btn"
+      >
+        {{ section.settings.button_text }}
+      </a>
+    {% endif %}
   </div>
 </section>
 
 <style>
-.hero {
-  background: #f5f5f5;
-  padding: 80px 40px;
-}
-.hero-content {
-  max-width: 600px;
-}
-.hero h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
-}
-.hero p {
-  font-size: 16px;
-  margin-bottom: 30px;
-}
-.hero-btn {
-  display: inline-block;
-  padding: 12px 24px;
-  background: #000;
-  color: #fff;
-  text-decoration: none;
-}
+  .hero-gift-guide {
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    padding: 60px 40px;
+  }
+
+  .hero-content {
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 32px;
+    border-radius: 8px;
+  }
+
+  .hero-content h1 {
+    font-size: 42px;
+    margin-bottom: 16px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .hero-btn {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    padding: 12px 28px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .hero-gift-guide {
+      padding: 40px 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 32px;
+    }
+  }
 </style>
 
 {% schema %}
@@ -38,31 +81,39 @@
   "name": "Hero Gift Guide",
   "settings": [
     {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background image"
+    },
+    {
       "type": "text",
       "id": "title",
-      "label": "Title",
+      "label": "Heading",
       "default": "The Gift Guide"
     },
     {
       "type": "textarea",
       "id": "subtitle",
       "label": "Subtitle",
-      "default": "Discover Joy: Your Ultimate Holiday Gift Destination."
+      "default": "Discover joy with our curated holiday gift collection."
     },
     {
       "type": "text",
       "id": "button_text",
-      "label": "Button Text",
+      "label": "Button text",
       "default": "SHOP NOW"
     },
     {
       "type": "url",
       "id": "button_link",
-      "label": "Button Link"
+      "label": "Button link",
+      "default": "/collections/all"
     }
   ],
   "presets": [
-    { "name": "Hero Gift Guide" }
+    {
+      "name": "Hero Gift Guide"
+    }
   ]
 }
 {% endschema %}
