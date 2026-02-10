@@ -1,13 +1,21 @@
 <section class="divider">
-  <p>{{ section.settings.text }}</p>
+  <p class="divider-text">{{ section.settings.text }}</p>
 </section>
 
 <style>
 .divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 16px;
+}
+
+.divider-text {
   text-align: center;
-  padding: 20px;
   font-size: 12px;
-  letter-spacing: 1px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  max-width: 900px;
 }
 </style>
 
