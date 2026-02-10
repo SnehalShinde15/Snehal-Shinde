@@ -1,37 +1,61 @@
-<section class="grid-section">
-  <h2>{{ section.settings.title }}</h2>
+<section class="image-grid">
+  <h2>{{ section.settings.heading }}</h2>
+
   <div class="grid">
     {% for block in section.blocks %}
       <div class="grid-item">
-        <img src="{{ block.settings.image | image_url }}" alt="">
+        {% if block.settings.image %}
+          <img src="{{ block.settings.image | image_url }}" alt="">
+        {% endif %}
+        <p>{{ block.settings.text }}</p>
       </div>
     {% endfor %}
   </div>
 </section>
 
 <style>
-.grid-section {
-  padding: 60px 40px;
+.image-grid {
+  padding: 60px;
+  text-align: center;
 }
+
+.image-grid h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 24px;
 }
-.grid img {
+
+.grid-item img {
   width: 100%;
-  display: block;
+  height: 260px;
+  object-fit: cover;
+}
+
+.grid-item p {
+  margin-top: 12px;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 
 {% schema %}
 {
-  "name": "Image Grid Wild",
+  "name": "Image Grid (6 Images)",
   "settings": [
     {
       "type": "text",
-      "id": "title",
-      "label": "Title",
+      "id": "heading",
+      "label": "Heading",
       "default": "Tisso vision in the wild"
     }
   ],
@@ -44,21 +68,19 @@
           "type": "image_picker",
           "id": "image",
           "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Caption"
         }
       ]
     }
   ],
+  "max_blocks": 6,
   "presets": [
     {
-      "name": "Image Grid Wild",
-      "blocks": [
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" }
-      ]
+      "name": "Image Grid (6 Images)"
     }
   ]
 }
